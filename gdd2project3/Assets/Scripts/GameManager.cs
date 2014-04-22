@@ -5,6 +5,8 @@ using System.Text.RegularExpressions;
 
 public class GameManager : MonoBehaviour {
 
+	public List<GameObject> WayPoints;
+	
 	GameObject enemy;
 	GameObject player;
 
@@ -13,7 +15,9 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		WayPoints = new List<GameObject> ();
+		//find the way points placed in the world
+		findWayPoints();
 		//make the player object connect with target
 		player = (GameObject)PlayerPrefab;
 
@@ -32,5 +36,13 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+	
+	void findWayPoints()
+	{	
+		for (int i = 0; i < 8; i++)
+		{
+			WayPoints.Add(GameObject.Find("WayPoint"+i));
+		}
 	}
 }

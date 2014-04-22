@@ -61,7 +61,7 @@ public class SteeringVehicle : MonoBehaviour {
 			transform.forward = velocity.normalized;
 		
 		// keep us grounded
-		velocity.y -= gravity * Time.deltaTime;
+		velocity.y -= gravity;
 		
 		// the CharacterController moves us subject to physical constraints
 		characterController.Move (velocity * Time.deltaTime);
